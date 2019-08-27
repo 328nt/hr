@@ -19,7 +19,11 @@ Route::get('/index', function () {
     return view('admin.layout.index');
 });
 
-Route::group(['prefix' => 'admin'], function () {
+Route::get('admin/login', 'UsersController@adminlogin');
+Route::post('admin/login', 'UsersController@postadminlogin');
+Route::get('admin/logout', 'UsersController@getadminlogout');
+
+Route::group(['prefix' => 'admin', 'middleware'=>'adminlogin'], function () {
     Route::group(['prefix' => 'member'], function () {
         Route::get('list', 'MemberController@getlist');
         Route::get('edit/{id}', 'MemberController@getedit');

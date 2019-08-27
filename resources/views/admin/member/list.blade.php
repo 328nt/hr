@@ -1,3 +1,4 @@
+
 @extends('admin.layout.index')
 @section('content')
     <!-- Page Content -->
@@ -5,15 +6,15 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">DANH SÁCH NHÂN SỰ IEG
+                    @if(session('msg'))
+                    <div class="alert alert-success">
+                        {{ session('msg') }}
+                    </div>
+                    @endif
+                    <h1 class="page-header">DANH SÁCH VIDEO
                     </h1>
                 </div>
                 <!-- /.col-lg-12 -->
-                @if(session('msg'))
-                <div class="alert alert-success">
-                    {{ session('msg') }}
-                </div>
-                @endif
                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                     <thead>
                         <tr align="center">
@@ -25,6 +26,8 @@
                             <th>phòng ban</th>
                             <th>Số điện thoại</th>
                             <th>Ngày vào công ty</th>
+                            <th>delete</th>
+                            <th>edit</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -55,7 +58,6 @@
                                 @else
                                 {{ "EC - 2449" }}
                                 @endif
-
                             </td>
                             <td>{{ $m->phone }}</td>
                             <td>{{ $m->dayin }}</td>
