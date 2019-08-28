@@ -17,13 +17,13 @@
                     <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
                 <li>
-                    <a href="admin/tintuc/danhsach"><i class="fa fa-cube fa-fw"></i> News<span class="fa arrow"></span></a>
+                    <a href="admin/news/list"><i class="fa fa-cube fa-fw"></i> News<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="admin/tintuc/danhsach">List News</a>
+                            <a href="admin/news/list">List News</a>
                         </li>
                         <li>
-                            <a href="admin/tintuc/them">Add News</a>
+                            <a href="admin/news/add">Add News</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
