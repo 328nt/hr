@@ -85,9 +85,11 @@ class NewsController extends Controller
      * @param  \App\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function edit(News $news)
+    public function edit($id)
     {
-        //
+        $catalogs = Catalog::All();
+        $news = News::find($id);
+        return view('admin/news/edit',['catalogs'=>$catalogs, 'news'=>$news]);
     }
 
     /**
@@ -97,9 +99,31 @@ class NewsController extends Controller
      * @param  \App\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, News $news)
+    public function update(Request $request,$id)
     {
-        //
+        $news = News::Find($id);
+        $this->validate($request, [
+
+        ],[
+
+        ]);
+        $news->title = $request->title;
+        $news->description = $request->description;
+        $news->content = $request->content;
+        $news->idcatalog = $request->idcatalog;
+        if ($request->hasfile('image')) {
+            $file = $request->file('image');
+            $name = $file->getClientOriginalName();
+            $save = str_random(3)."-".$name;
+            while (file_exists("upload/news/".$save)) {
+                $save = str_random(3)."-".$name;
+            }
+            $file->move("upload/news", $save);
+            unlink("upload/news/".$news->image);
+            $news->image = $save;
+        }
+        $news->save();
+        return redirect('admin/news/edit/'.$id)->with('msg','sửa tin tức thành công');
     }
 
     /**
@@ -108,8 +132,10 @@ class NewsController extends Controller
      * @param  \App\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function destroy(News $news)
+    public function destroy($id)
     {
-        //
+        $news = News::Find($id);
+        $news->delete();
+        return redirect('admin/news/list')->with('msg','xóa bài viết thành công');
     }
 }

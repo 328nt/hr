@@ -49,7 +49,7 @@
                             <label>Image</label>
                             <input  class="form-control" type="file" name="image" />
                         </div>
-                        <button type="submit" class="btn btn-default">Thêm video</button>
+                        <button type="submit" class="btn btn-default">Thêm Tin tuc</button>
                         <button type="reset" class="btn btn-default">Reset</button>
                     <form>
                 </div>

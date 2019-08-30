@@ -50,7 +50,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>'adminlogin'], function () {
         Route::post('update/{id}', 'NewsController@update');
         Route::get('add', 'NewsController@create');
         Route::post('store', 'NewsController@store');
-        Route::get('delete/{id}', 'NewsController@getdelete');
+        Route::get('delete/{id}', 'NewsController@destroy');
     });
     
 });
