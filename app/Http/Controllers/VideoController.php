@@ -16,6 +16,8 @@ class VideoController extends Controller
     {
         $videos = Video::All();
         return view('admin/videos/list', ['videos'=>$videos]);
+        $name = $this->choice('What is your name?', ['Taylor', 'Dayle'], $defaultIndex);
+        dd($videos);
     }
 
     /**

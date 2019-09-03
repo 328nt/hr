@@ -29,6 +29,18 @@
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
+                    <a href="admin/question/list"><i class="fa fa-cube fa-fw"></i> Question<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="admin/question/list">List question</a>
+                        </li>
+                        <li>
+                            <a href="admin/question/add">Add question</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+                <li>
                     <a href="admin/video/list"><i class="fa fa-cube fa-fw"></i> video<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>

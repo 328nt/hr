@@ -41,8 +41,15 @@ Route::group(['prefix' => 'admin', 'middleware'=>'adminlogin'], function () {
         Route::post('store', 'VideoController@store');
         Route::get('delete/{id}', 'VideoController@getdelete');
     });
-
     
+    Route::group(['prefix' => 'question'], function () {
+        Route::get('list', 'QuizController@index');
+        Route::get('edit/{id}', 'QuizController@edit');
+        Route::post('update/{id}', 'QuizController@update');
+        Route::get('add', 'QuizController@create');
+        Route::post('store', 'QuizController@store');
+        Route::get('delete/{id}', 'QuizController@destroy');
+    });
     
     Route::group(['prefix' => 'news'], function () {
         Route::get('list', 'NewsController@index');
