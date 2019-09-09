@@ -11,13 +11,21 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/1', function () {
     return view('welcome');
 });
 
 Route::get('/index', function () {
     return view('admin.layout.index');
 });
+// Route::get('abc', function () {
+//     return view('pages/index');
+// });
+
+
+Route::get('/', 'FrontController@member');
+Route::get('/news/{id}.html', 'FrontController@news');
+
 
 Route::get('admin/login', 'UsersController@adminlogin');
 Route::post('admin/login', 'UsersController@postadminlogin');

@@ -10,4 +10,9 @@ class Catalog extends Model
     {
         return $this->hasMany('App\News', 'idcatalog', 'id');
     }
+
+    public function new()
+    {
+        return $this->hasMany('App\News', 'idcatalog', 'id');
+    }
 }
